@@ -1,1528 +1,343 @@
 <!DOCTYPE html>
-<html lang="fr" dir="ltr">
-
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Petit Dressing MA – Bébé & Enfant</title>
-  <meta name="description"
-    content="Vêtements seconde main de qualité pour bébé et enfant à Fès. Livraison gratuite à Fès et partout au Maroc dès 150 DH.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Nunito:wght@300;400;600;700&family=Amiri:wght@400;700&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <style>
-    :root {
-      --brown: #5c3d2e;
-      --teal: #2a9d8f;
-      --teal-light: #52b8ac;
-      --orange: #e76f51;
-      --yellow: #f4a261;
-      --cream: #fdf8f2;
-      --gold: #c9a84c;
-      --dark: #2d1b10;
-      --text: #3d2b1f;
-      --text-light: #7a5c4a;
-      --white: #ffffff;
-      --shadow: 0 4px 24px rgba(92, 61, 46, 0.10);
-      --radius: 18px;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-style: italic;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Nunito', sans-serif;
-      background: var(--cream);
-      color: var(--text);
-      overflow-x: hidden;
-    }
-
-    /* ========== NAVBAR ========== */
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      background: rgba(253, 248, 242, 0.95);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(201, 168, 76, 0.2);
-      padding: 0 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 68px;
-      transition: box-shadow 0.3s;
-    }
-
-    nav.scrolled {
-      box-shadow: 0 2px 20px rgba(92, 61, 46, 0.12);
-    }
-
-    .nav-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.3rem;
-      color: var(--brown);
-      font-weight: 700;
-      letter-spacing: 0.02em;
-    }
-
-    .nav-logo span {
-      color: var(--teal);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 28px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: var(--text-light);
-      font-size: 0.9rem;
-      font-weight: 600;
-      transition: color 0.2s;
-      letter-spacing: 0.03em;
-    }
-
-    .nav-links a:hover {
-      color: var(--teal);
-    }
-
-    .nav-wa {
-      background: linear-gradient(135deg, #25d366, #128c7e);
-      color: white !important;
-      padding: 8px 18px;
-      border-radius: 50px;
-      font-weight: 700 !important;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      transition: transform 0.2s, box-shadow 0.2s !important;
-    }
-
-    .nav-wa:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4) !important;
-    }
-
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      padding: 4px;
-    }
-
-    .hamburger span {
-      display: block;
-      width: 24px;
-      height: 2px;
-      background: var(--brown);
-      border-radius: 2px;
-      transition: 0.3s;
-    }
-
-    .mobile-menu {
-      display: none;
-      position: fixed;
-      top: 68px;
-      left: 0;
-      right: 0;
-      background: var(--cream);
-      border-bottom: 2px solid var(--gold);
-      padding: 20px 24px;
-      z-index: 99;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .mobile-menu.open {
-      display: flex;
-    }
-
-    .mobile-menu a {
-      text-decoration: none;
-      color: var(--text);
-      font-weight: 600;
-      font-size: 1rem;
-      padding: 8px 0;
-      border-bottom: 1px solid rgba(201, 168, 76, 0.2);
-    }
-
-    /* ========== HERO ========== */
-    .hero {
-      min-height: 100vh;
-      background: linear-gradient(160deg, #fdf8f2 0%, #e8f7f5 50%, #fef3eb 100%);
-      display: flex;
-      align-items: center;
-      padding: 100px 24px 60px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -100px;
-      right: -100px;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(42, 157, 143, 0.12) 0%, transparent 70%);
-      border-radius: 50%;
-    }
-
-    .hero::after {
-      content: '';
-      position: absolute;
-      bottom: -80px;
-      left: -80px;
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle, rgba(231, 111, 81, 0.10) 0%, transparent 70%);
-      border-radius: 50%;
-    }
-
-    .hero-content {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(42, 157, 143, 0.1);
-      border: 1px solid rgba(42, 157, 143, 0.3);
-      color: var(--teal);
-      font-size: 0.8rem;
-      font-weight: 700;
-      padding: 6px 14px;
-      border-radius: 50px;
-      margin-bottom: 20px;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-    }
-
-    .hero-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.2rem, 5vw, 3.6rem);
-      line-height: 1.15;
-      color: var(--brown);
-      margin-bottom: 20px;
-    }
-
-    .hero-title em {
-      font-style: italic;
-      color: var(--teal);
-    }
-
-    .hero-subtitle {
-      font-size: 1.05rem;
-      color: var(--text-light);
-      line-height: 1.7;
-      margin-bottom: 32px;
-    }
-
-    .hero-subtitle-ar {
-      font-family: 'Amiri', serif;
-      font-size: 1.1rem;
-      color: var(--text-light);
-      line-height: 1.8;
-      margin-bottom: 32px;
-      direction: rtl;
-      text-align: right;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--teal), var(--teal-light));
-      color: white;
-      padding: 14px 28px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 0.95rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: transform 0.2s, box-shadow 0.2s;
-      box-shadow: 0 4px 20px rgba(42, 157, 143, 0.3);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 28px rgba(42, 157, 143, 0.4);
-    }
-
-    .btn-secondary {
-      background: white;
-      color: var(--brown);
-      padding: 14px 28px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 0.95rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      border: 2px solid rgba(92, 61, 46, 0.15);
-      transition: transform 0.2s, border-color 0.2s;
-    }
-
-    .btn-secondary:hover {
-      transform: translateY(-3px);
-      border-color: var(--brown);
-    }
-
-    .hero-stats {
-      display: flex;
-      gap: 28px;
-      margin-top: 36px;
-    }
-
-    .stat {
-      text-align: center;
-    }
-
-    .stat-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--teal);
-    }
-
-    .stat-label {
-      font-size: 0.78rem;
-      color: var(--text-light);
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .hero-visual {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .hero-img-wrap {
-      position: relative;
-      width: 100%;
-      max-width: 420px;
-    }
-
-    .hero-img-main {
-      width: 100%;
-      border-radius: 30px 30px 120px 30px;
-      box-shadow: 0 20px 60px rgba(92, 61, 46, 0.2);
-      object-fit: cover;
-      aspect-ratio: 1;
-    }
-
-    .hero-img-badge {
-      position: absolute;
-      bottom: 24px;
-      left: -20px;
-      background: white;
-      border-radius: 16px;
-      padding: 14px 18px;
-      box-shadow: 0 8px 30px rgba(92, 61, 46, 0.15);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .hero-img-badge-icon {
-      width: 40px;
-      height: 40px;
-      background: linear-gradient(135deg, var(--teal), var(--teal-light));
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
-    }
-
-    .hero-img-badge-text {
-      font-size: 0.8rem;
-      line-height: 1.4;
-    }
-
-    .hero-img-badge-text strong {
-      display: block;
-      color: var(--brown);
-      font-size: 0.9rem;
-    }
-
-    .hero-img-badge-text span {
-      color: var(--text-light);
-    }
-
-    /* ========== DELIVERY BANNER ========== */
-    .delivery-banner {
-      background: linear-gradient(135deg, var(--teal), #1a7a6e);
-      color: white;
-      padding: 16px 24px;
-      text-align: center;
-    }
-
-    .delivery-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 32px;
-      flex-wrap: wrap;
-    }
-
-    .delivery-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.9rem;
-      font-weight: 600;
-    }
-
-    /* ========== SECTION TITLES ========== */
-    .section-header {
-      text-align: center;
-      margin-bottom: 48px;
-    }
-
-    .section-tag {
-      display: inline-block;
-      background: rgba(42, 157, 143, 0.1);
-      color: var(--teal);
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 5px 14px;
-      border-radius: 50px;
-      margin-bottom: 12px;
-    }
-
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-      color: var(--brown);
-      line-height: 1.2;
-    }
-
-    .section-title em {
-      color: var(--teal);
-      font-style: italic;
-    }
-
-    .section-sub {
-      color: var(--text-light);
-      margin-top: 10px;
-      font-size: 1rem;
-    }
-
-    /* ========== CATALOGUE ========== */
-    #catalogue {
-      padding: 80px 24px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .filters {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-bottom: 40px;
-    }
-
-    .filter-btn {
-      padding: 8px 20px;
-      border-radius: 50px;
-      border: 2px solid rgba(92, 61, 46, 0.15);
-      background: white;
-      color: var(--text-light);
-      font-family: 'Nunito', sans-serif;
-      font-weight: 700;
-      font-size: 0.85rem;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-
-    .filter-btn.active,
-    .filter-btn:hover {
-      background: var(--teal);
-      color: white;
-      border-color: var(--teal);
-    }
-
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 24px;
-    }
-
-    .product-card {
-      background: white;
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      transition: transform 0.3s, box-shadow 0.3s;
-      position: relative;
-    }
-
-    .product-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 40px rgba(92, 61, 46, 0.15);
-    }
-
-    .product-badge {
-      position: absolute;
-      top: 14px;
-      left: 14px;
-      background: var(--orange);
-      color: white;
-      font-size: 0.72rem;
-      font-weight: 700;
-      padding: 4px 10px;
-      border-radius: 50px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      z-index: 2;
-    }
-
-    .product-img {
-      width: 100%;
-      aspect-ratio: 1;
-      object-fit: cover;
-      display: block;
-    }
-
-    .product-img-placeholder {
-      width: 100%;
-      aspect-ratio: 1;
-      background: linear-gradient(135deg, #f0f9f8, #e8f7f5);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 3rem;
-    }
-
-    .product-info {
-      padding: 16px;
-    }
-
-    .product-category {
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--teal);
-      margin-bottom: 4px;
-    }
-
-    .product-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.05rem;
-      color: var(--brown);
-      margin-bottom: 6px;
-      line-height: 1.3;
-    }
-
-    .product-size {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      background: rgba(42, 157, 143, 0.08);
-      color: var(--teal);
-      font-size: 0.78rem;
-      font-weight: 700;
-      padding: 3px 10px;
-      border-radius: 50px;
-      margin-bottom: 12px;
-    }
-
-    .product-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .product-price {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: var(--brown);
-    }
-
-    .product-price span {
-      font-size: 0.8rem;
-      font-family: 'Nunito', sans-serif;
-      color: var(--text-light);
-      font-weight: 600;
-    }
-
-    .btn-order {
-      background: linear-gradient(135deg, #25d366, #128c7e);
-      color: white;
-      border: none;
-      padding: 8px 16px;
-      border-radius: 50px;
-      font-family: 'Nunito', sans-serif;
-      font-weight: 700;
-      font-size: 0.82rem;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      transition: transform 0.2s, box-shadow 0.2s;
-      text-decoration: none;
-    }
-
-    .btn-order:hover {
-      transform: scale(1.05);
-      box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
-    }
-
-    .hidden {
-      display: none !important;
-    }
-
-    /* ========== ABOUT ========== */
-    #about {
-      background: linear-gradient(160deg, #e8f7f5 0%, #fdf8f2 100%);
-      padding: 80px 24px;
-    }
-
-    .about-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-    }
-
-    .about-text p {
-      color: var(--text-light);
-      line-height: 1.8;
-      margin-bottom: 16px;
-      font-size: 1rem;
-    }
-
-    .about-text-ar {
-      direction: rtl;
-      font-family: 'Amiri', serif;
-      font-size: 1.05rem;
-      color: var(--text-light);
-      line-height: 1.9;
-      margin-bottom: 16px;
-    }
-
-    .about-values {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin-top: 28px;
-    }
-
-    .value-card {
-      background: white;
-      border-radius: 14px;
-      padding: 18px;
-      box-shadow: var(--shadow);
-    }
-
-    .value-icon {
-      font-size: 1.6rem;
-      margin-bottom: 8px;
-    }
-
-    .value-title {
-      font-weight: 700;
-      color: var(--brown);
-      font-size: 0.9rem;
-      margin-bottom: 4px;
-    }
-
-    .value-desc {
-      font-size: 0.8rem;
-      color: var(--text-light);
-      line-height: 1.5;
-    }
-
-    .about-logo-wrap {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .about-logo-wrap img {
-      width: 100%;
-      max-width: 380px;
-      border-radius: 24px;
-      box-shadow: 0 20px 60px rgba(92, 61, 46, 0.15);
-    }
-
-    /* ========== FAQ ========== */
-    #faq {
-      padding: 80px 24px;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .faq-item {
-      background: white;
-      border-radius: 14px;
-      margin-bottom: 12px;
-      box-shadow: var(--shadow);
-      overflow: hidden;
-    }
-
-    .faq-question {
-      padding: 18px 22px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-weight: 700;
-      color: var(--brown);
-      font-size: 0.95rem;
-    }
-
-    .faq-question:hover {
-      color: var(--teal);
-    }
-
-    .faq-arrow {
-      font-size: 1.1rem;
-      transition: transform 0.3s;
-      color: var(--teal);
-      flex-shrink: 0;
-    }
-
-    .faq-item.open .faq-arrow {
-      transform: rotate(180deg);
-    }
-
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s ease;
-    }
-
-    .faq-item.open .faq-answer {
-      max-height: 300px;
-    }
-
-    .faq-answer-inner {
-      padding: 0 22px 18px;
-      color: var(--text-light);
-      line-height: 1.7;
-      font-size: 0.92rem;
-    }
-
-    /* ========== INSTAGRAM ========== */
-    #instagram {
-      padding: 80px 24px;
-      background: linear-gradient(160deg, #fef3eb 0%, #fdf8f2 100%);
-    }
-
-    .insta-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .insta-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-      border-radius: 20px;
-      overflow: hidden;
-    }
-
-    .insta-item {
-      aspect-ratio: 1;
-      background: linear-gradient(135deg, #e8f7f5, #fef3eb);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2rem;
-      position: relative;
-      overflow: hidden;
-      cursor: pointer;
-    }
-
-    .insta-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.4s;
-    }
-
-    .insta-item:hover img {
-      transform: scale(1.08);
-    }
-
-    .insta-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(42, 157, 143, 0.7);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-
-    .insta-item:hover .insta-overlay {
-      opacity: 1;
-    }
-
-    .insta-follow {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 32px;
-    }
-
-    .btn-insta {
-      background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-      color: white;
-      padding: 14px 32px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 0.95rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      transition: transform 0.2s, box-shadow 0.2s;
-      box-shadow: 0 4px 20px rgba(220, 39, 67, 0.3);
-    }
-
-    .btn-insta:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 28px rgba(220, 39, 67, 0.4);
-    }
-
-    /* ========== CONTACT ========== */
-    #contact {
-      padding: 80px 24px;
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .contact-card {
-      background: white;
-      border-radius: 24px;
-      padding: 48px 40px;
-      box-shadow: 0 8px 40px rgba(92, 61, 46, 0.10);
-    }
-
-    .contact-methods {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin-top: 32px;
-    }
-
-    .contact-method {
-      padding: 22px;
-      border-radius: 16px;
-      border: 2px solid rgba(42, 157, 143, 0.15);
-      text-decoration: none;
-      color: var(--text);
-      transition: all 0.2s;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .contact-method:hover {
-      border-color: var(--teal);
-      background: rgba(42, 157, 143, 0.04);
-      transform: translateY(-3px);
-    }
-
-    .contact-method-icon {
-      font-size: 2rem;
-    }
-
-    .contact-method-title {
-      font-weight: 700;
-      color: var(--brown);
-      font-size: 0.95rem;
-    }
-
-    .contact-method-sub {
-      font-size: 0.82rem;
-      color: var(--text-light);
-    }
-
-    /* ========== FOOTER ========== */
-    footer {
-      background: var(--dark);
-      color: rgba(255, 255, 255, 0.7);
-      padding: 48px 24px 24px;
-      text-align: center;
-    }
-
-    .footer-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .footer-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
-      color: white;
-      margin-bottom: 8px;
-    }
-
-    .footer-logo span {
-      color: var(--teal-light);
-    }
-
-    .footer-tagline {
-      font-size: 0.88rem;
-      margin-bottom: 24px;
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 20px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-bottom: 24px;
-    }
-
-    .footer-links a {
-      color: rgba(255, 255, 255, 0.6);
-      text-decoration: none;
-      font-size: 0.85rem;
-      transition: color 0.2s;
-    }
-
-    .footer-links a:hover {
-      color: var(--teal-light);
-    }
-
-    .footer-bottom {
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      padding-top: 20px;
-      font-size: 0.8rem;
-      color: rgba(255, 255, 255, 0.4);
-    }
-
-    /* ========== WHATSAPP FLOAT ========== */
-    .wa-float {
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      z-index: 200;
-      width: 58px;
-      height: 58px;
-      background: linear-gradient(135deg, #25d366, #128c7e);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.6rem;
-      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
-      text-decoration: none;
-      animation: pulse-wa 2s infinite;
-      transition: transform 0.2s;
-    }
-
-    .wa-float:hover {
-      transform: scale(1.1);
-    }
-
-    @keyframes pulse-wa {
-
-      0%,
-      100% {
-        box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
-      }
-
-      50% {
-        box-shadow: 0 4px 32px rgba(37, 211, 102, 0.8), 0 0 0 8px rgba(37, 211, 102, 0.1);
-      }
-    }
-
-    /* ========== ANIMATIONS ========== */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* ========== RESPONSIVE ========== */
-    @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-      }
-
-      .hamburger {
-        display: flex;
-      }
-
-      .hero-content {
-        grid-template-columns: 1fr;
-        gap: 36px;
-      }
-
-      .hero-visual {
-        order: -1;
-      }
-
-      .hero-img-main {
-        border-radius: 20px;
-      }
-
-      .hero-stats {
-        justify-content: center;
-      }
-
-      .about-inner {
-        grid-template-columns: 1fr;
-      }
-
-      .about-logo-wrap {
-        order: -1;
-      }
-
-      .insta-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .contact-methods {
-        grid-template-columns: 1fr;
-      }
-
-      .delivery-inner {
-        gap: 12px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .products-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-      }
-
-      .about-values {
-        grid-template-columns: 1fr;
-      }
-
-      .contact-card {
-        padding: 28px 20px;
-      }
-    }
-  </style>
+  <meta name="description" content="Petit Dressing MA — Vêtements seconde main pour bébé et enfant à Fès. Livraison gratuite Fès, partout au Maroc dès 150 DH.">
+  <meta name="keywords" content="vêtements enfants occasion Maroc, Fès, seconde main, bébé, fille, garçon">
+  <title>Petit Dressing MA — Bébé & Enfant</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
 
-  <!-- NAVBAR -->
-  <nav id="navbar">
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
     <div class="nav-logo">Petit <span>Dressing</span></div>
     <ul class="nav-links">
-      <li><a href="#catalogue">Catalogue</a></li>
-      <li><a href="#about">À propos</a></li>
-      <li><a href="#faq">FAQ</a></li>
-      <li><a href="#instagram">Instagram</a></li>
-      <li><a href="#contact">Contact</a></li>
-      <li><a href="https://wa.me/212715464954" class="nav-wa" target="_blank"><i
-            class="fab fa-whatsapp"></i>WhatsApp</a></li>
+      <li><a href="catalogue.html">Catalogue</a></li>
+      <li><a href="index.html#categories">Catégories</a></li>
+      <li><a href="index.html#about">À propos</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="https://wa.me/212600000000" target="_blank" class="nav-wa">📱 Commander</a></li>
     </ul>
-    <div class="hamburger" onclick="toggleMenu()">
+    <button class="hamburger" id="hamburger" aria-label="Menu">
       <span></span><span></span><span></span>
-    </div>
-  </nav>
+    </button>
+  </div>
+</nav>
 
-  <!-- MOBILE MENU -->
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="#catalogue" onclick="toggleMenu()">🛍️ Catalogue</a>
-    <a href="#about" onclick="toggleMenu()">💛 À propos</a>
-    <a href="#faq" onclick="toggleMenu()">❓ FAQ</a>
-    <a href="#instagram" onclick="toggleMenu()"><i class="fab fa-instagram"></i> Instagram</a>
-    <a href="#contact" onclick="toggleMenu()">📞 Contact</a>
-    <a href="https://wa.me/212715464954" target="_blank" style="color:#25d366;"><i class="fab fa-whatsapp"></i>
-      Commander sur WhatsApp</a>
+<!-- ===== MOBILE MENU ===== -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="catalogue.html">Catalogue</a>
+  <a href="index.html#categories">Catégories</a>
+  <a href="index.html#about">À propos</a>
+  <a href="contact.html">Contact</a>
+  <a href="https://wa.me/212600000000" target="_blank">📱 Commander sur WhatsApp</a>
+</div>
+
+<!-- ===== DELIVERY BANNER ===== -->
+<div class="delivery-banner">
+  <div class="delivery-banner-inner">
+    <div class="delivery-item">🏠 Livraison gratuite à Fès</div>
+    <div class="delivery-item">📦 Gratuite partout au Maroc dès 150 DH</div>
+    <div class="delivery-item">✅ Qualité vérifiée · جودة مضمونة</div>
+  </div>
+</div>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <img src="images/banners/hero.jpg" alt="Petit Dressing MA" class="hero-img" onerror="this.style.display='none'">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-tag">✦ Seconde main · Bébé & Enfant</span>
+    <h1 class="hero-title">
+      Le dressing de<br>vos <em>petits,</em><br>réinventé
+      <span class="hero-title-ar">أجمل الملابس لأصغر أحبائكم</span>
+    </h1>
+    <a href="catalogue.html" class="btn-hero">
+      Voir le catalogue →
+    </a>
+  </div>
+  <div class="hero-scroll">
+    <div class="hero-scroll-line"></div>
+    <span>Défiler</span>
+  </div>
+</section>
+
+<!-- ===== CATEGORIES ===== -->
+<section id="categories" style="padding: 100px 40px; max-width: 1400px; margin: 0 auto;">
+  <div class="section-header reveal">
+    <span class="section-tag">Parcourir</span>
+    <h2 class="section-title">Nos <em>Catégories</em></h2>
+    <div class="section-title-ar">تسوق حسب الفئة</div>
   </div>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-content">
-      <div class="hero-text">
-        <div class="hero-badge">✨ Seconde main · بيع الملابس المستعملة</div>
-        <h1 class="hero-title">
-          Le dressing de vos<br><em>petits, réinventé</em>
-        </h1>
-        <p class="hero-subtitle">
-          Des vêtements de qualité pour bébé et enfant, soigneusement sélectionnés. Style, confort et économies
-          garantis.
-        </p>
-        <p class="hero-subtitle-ar">
-          ملابس أطفال مختارة بعناية، جودة عالية بأسعار في المتناول 👶👗
-        </p>
-        <div class="hero-actions">
-          <a href="#catalogue" class="btn-primary">🛍️ Voir le catalogue</a>
-          <a href="https://wa.me/212715464954" class="btn-secondary" target="_blank" style="color:#25d366;"><i
-              class="fab fa-whatsapp"></i>
-            Commander</a>
-        </div>
-        <div class="hero-stats">
-          <div class="stat">
-            <div class="stat-num">100+</div>
-            <div class="stat-label">Articles</div>
-          </div>
-          <div class="stat">
-            <div class="stat-num">0 DH</div>
-            <div class="stat-label">Livraison Fès</div>
-          </div>
-          <div class="stat">
-            <div class="stat-num">100%</div>
-            <div class="stat-label">Qualité vérifiée</div>
-          </div>
+  <div class="categories-grid reveal">
+
+    <a href="catalogue.html?cat=bebe" class="cat-card large">
+      <img src="images/produits/bebe/fille/0-6mois/body/placeholder.jpg"
+           onerror="this.src='images/logo/logo1.png'; this.style.objectFit='contain'; this.style.padding='40px'"
+           alt="Bébé">
+      <div class="cat-card-overlay"></div>
+      <div class="cat-card-content">
+        <span class="cat-card-tag">Shop</span>
+        <div class="cat-card-title">Bébé</div>
+        <span class="cat-card-title-ar">ملابس الأطفال الرضع · 0–24 mois</span>
+      </div>
+    </a>
+
+    <a href="catalogue.html?cat=fille" class="cat-card">
+      <img src="images/produits/fille/3-4ans/demi-saison/set-2pieces/placeholder.jpg"
+           onerror="this.src='images/logo/logo1.png'; this.style.objectFit='contain'; this.style.padding='40px'"
+           alt="Fille">
+      <div class="cat-card-overlay"></div>
+      <div class="cat-card-content">
+        <span class="cat-card-tag">Shop</span>
+        <div class="cat-card-title">Fille</div>
+        <span class="cat-card-title-ar">ملابس البنات · 2–12 ans</span>
+      </div>
+    </a>
+
+    <a href="catalogue.html?cat=garcon" class="cat-card">
+      <img src="images/produits/garcon/3-4ans/demi-saison/jean/placeholder.jpg"
+           onerror="this.src='images/logo/logo1.png'; this.style.objectFit='contain'; this.style.padding='40px'"
+           alt="Garçon">
+      <div class="cat-card-overlay"></div>
+      <div class="cat-card-content">
+        <span class="cat-card-tag">Shop</span>
+        <div class="cat-card-title">Garçon</div>
+        <span class="cat-card-title-ar">ملابس الأولاد · 2–12 ans</span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- ===== NOUVEAUTÉS ===== -->
+<section style="padding: 0 40px 100px; max-width: 1400px; margin: 0 auto;">
+  <div class="section-header reveal">
+    <span class="section-tag">Nouveautés</span>
+    <h2 class="section-title">Dernières <em>Arrivées</em></h2>
+    <div class="section-title-ar">آخر الوصولات</div>
+  </div>
+
+  <div class="produits-grid" id="produitsGrid">
+
+    <!-- Produit 1 -->
+    <div class="produit-card reveal reveal-delay-1" onclick="window.location.href='article.html?id=1'">
+      <div class="produit-img-wrap">
+        <img src="images/produits/fille/3-4ans/demi-saison/set-2pieces/fille-3-4ans-set-butterfly-001.jpg"
+             onerror="this.src='images/logo/logo1.png'; this.style.objectFit='contain'; this.style.padding='20px'"
+             alt="Set Butterfly" loading="lazy">
+        <span class="produit-badge occasion">Occasion</span>
+        <div class="produit-actions">
+          <button class="produit-action-btn" title="Commander" onclick="event.stopPropagation(); window.open('https://wa.me/212600000000?text=Bonjour, je suis intéressé(e) par le Set Butterfly (3-4 ans) à 89 DH','_blank')">📱</button>
         </div>
       </div>
-      <div class="hero-visual">
-        <div class="hero-img-wrap">
-          <img src="images/produits/bebe/fille/0-6mois/ete/robe/2-6mois/3.png" alt="Petit Dressing MA"
-            class="hero-img-main">
-          <div class="hero-img-badge">
-            <div class="hero-img-badge-icon">🚚</div>
-            <div class="hero-img-badge-text">
-              <strong>Livraison gratuite</strong>
-              <span>Fès + Maroc dès 150 DH</span>
-            </div>
-          </div>
+      <div class="produit-info">
+        <div class="produit-cat">👧 Fille · Set</div>
+        <div class="produit-name">Set Butterfly</div>
+        <div class="produit-taille">📏 3–4 ans</div>
+        <div class="produit-footer">
+          <div class="produit-prix">89 <span>DH</span></div>
+          <a href="https://wa.me/212600000000?text=Bonjour, je suis intéressé(e) par le Set Butterfly (3-4 ans) à 89 DH" target="_blank" class="btn-commander" onclick="event.stopPropagation()">Commander</a>
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- DELIVERY BANNER -->
-  <div class="delivery-banner">
-    <div class="delivery-inner">
-      <div class="delivery-item">🏠 Livraison gratuite à Fès</div>
-      <div class="delivery-item">📦 Livraison gratuite au Maroc dès 150 DH</div>
-      <div class="delivery-item">💬 Commande via WhatsApp</div>
-      <div class="delivery-item">✅ Qualité vérifiée</div>
+    <!-- Produit 2 -->
+    <div class="produit-card reveal reveal-delay-2" onclick="window.location.href='article.html?id=2'">
+      <div class="produit-img-wrap">
+        <img src="images/produits/bebe/fille/4-6mois/demi-saison/body/bebe-fille-4-6mois-tshirt-star-001.jpg"
+             onerror="this.src='images/logo/logo1.png'; this.style.objectFit='contain'; this.style.padding='20px'"
+             alt="T-shirt Star" loading="lazy">
+        <span class="produit-badge occasion">Occasion</span>
+        <div class="produit-actions">
+          <button class="produit-action-btn" title="Commander" onclick="event.stopPropagation(); window.open('https://wa.me/212600000000?text=Bonjour, je suis intéressé(e) par le T-shirt Star (4-6 mois) à 45 DH','_blank')">📱</button>
+        </div>
+      </div>
+      <div class="produit-info">
+        <div class="produit-cat">👶 Bébé</div>
+        <div class="produit-name">T-shirt "You Are My Star"</div>
+        <div class="produit-taille">📏 4–6 mois</div>
+        <div class="produit-footer">
+          <div class="produit-prix">45 <span>DH</span></div>
+          <a href="https://wa.me/212600000000?text=Bonjour, je suis intéressé(e) par le T-shirt Star (4-6 mois) à 45 DH" target="_blank" class="btn-commander" onclick="event.stopPropagation()">Commander</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Produit 3 -->
+    <div class="produit-card reveal reveal-delay-3" onclick="window.location.href='article.html?id=3'">
+      <div class="produit-img-wrap">
+        <img src="images/produits/bebe/garcon/4-6mois/demi-saison/pantalon/bebe-garcon-4-6mois-jean-hm-001.jpg"
+             onerror="this.src='images/logo/logo1.png'; this.style.objectFit='contain'; this.style.padding='20px'"
+             alt="Jean H&M" loading="lazy">
+        <span class="produit-badge">H&M</span>
+        <div class="produit-actions">
+          <button class="produit-action-btn" title="Commander" onclick="event.stopPropagation(); window.open('https://wa.me/212600000000?text=Bonjour, je suis intéressé(e) par le Jean Moto H&M (4-6 mois) à 55 DH','_blank')">📱</button>
+        </div>
+      </div>
+      <div class="produit-info">
+        <div class="produit-cat">👶 Bébé Garçon</div>
+        <div class="produit-name">Jean Moto H&M</div>
+        <div class="produit-taille">📏 4–6 mois</div>
+        <div class="produit-footer">
+          <div class="produit-prix">55 <span>DH</span></div>
+          <a href="https://wa.me/212600000000?text=Bonjour, je suis intéressé(e) par le Jean Moto H&M (4-6 mois) à 55 DH" target="_blank" class="btn-commander" onclick="event.stopPropagation()">Commander</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Produit 4 -->
+    <div class="produit-card reveal reveal-delay-4" onclick="window.location.href='article.html?id=4'">
+      <div class="produit-img-wrap">
+        <img src="images/produits/fille/5-6ans/demi-saison/set-2pieces/fille-5-6ans-set-violet-001.jpg"
+             onerror="this.src='images/logo/logo1.png'; this.style.objectFit='contain'; this.style.padding='20px'"
+             alt="Set Be Happy" loading="lazy">
+        <span class="produit-badge occasion">Occasion</span>
+        <div class="produit-actions">
+          <button class="produit-action-btn" title="Commander" onclick="event.stopPropagation(); window.open('https://wa.me/212600000000?text=Bonjour, je suis intéressé(e) par le Set Be Happy (5-6 ans) à 85 DH','_blank')">📱</button>
+        </div>
+      </div>
+      <div class="produit-info">
+        <div class="produit-cat">👧 Fille · Set</div>
+        <div class="produit-name">Set "Be Happy Every Day"</div>
+        <div class="produit-taille">📏 5–6 ans</div>
+        <div class="produit-footer">
+          <div class="produit-prix">85 <span>DH</span></div>
+          <a href="https://wa.me/212600000000?text=Bonjour, je suis intéressé(e) par le Set Be Happy (5-6 ans) à 85 DH" target="_blank" class="btn-commander" onclick="event.stopPropagation()">Commander</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="text-align:center; margin-top: 48px;" class="reveal">
+    <a href="catalogue.html" class="btn-insta">Voir tout le catalogue →</a>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section id="about" class="about-section">
+  <img src="images/logo/logo1.png" alt="Petit Dressing MA" class="about-img" style="object-fit:contain; padding:40px; background:var(--cream-dark);">
+  <div class="about-content reveal">
+    <span class="section-tag" style="padding:0;">Notre histoire</span>
+    <h2 class="about-title">Thoughtful +<br><em>Timeless</em></h2>
+    <p class="about-text">
+      Petit Dressing MA est née d'une conviction simple : les enfants grandissent vite, mais la qualité ne devrait pas être un luxe. Basée à Fès, notre boutique propose une sélection soigneuse de vêtements seconde main pour bébé et enfant.
+    </p>
+    <p class="about-text-ar">
+      بيتي دريسينغ — ملابس أطفال مختارة بعناية، جودة عالية بأسعار في متناول الجميع. نحن نهتم بكل تفصيل لأن أطفالكم يستحقون الأفضل.
+    </p>
+    <a href="catalogue.html" class="btn-hero" style="display:inline-flex; color:var(--white);">
+      Découvrir →
+    </a>
+  </div>
+</section>
+
+<!-- ===== GARANTIES ===== -->
+<section class="garanties-section">
+  <h2 class="garanties-title reveal">We <em>guarantee</em></h2>
+  <div class="garanties-grid">
+    <div class="garantie-item reveal reveal-delay-1">
+      <span class="garantie-icon">🚚</span>
+      <div class="garantie-title">Livraison gratuite Fès</div>
+      <div class="garantie-desc">Livraison offerte pour toute commande à Fès</div>
+      <div class="garantie-desc-ar">التوصيل مجاني في فاس</div>
+    </div>
+    <div class="garantie-item reveal reveal-delay-2">
+      <span class="garantie-icon">✅</span>
+      <div class="garantie-title">Qualité vérifiée</div>
+      <div class="garantie-desc">Chaque article est inspecté avant mise en vente</div>
+      <div class="garantie-desc-ar">كل قطعة محققة قبل البيع</div>
+    </div>
+    <div class="garantie-item reveal reveal-delay-3">
+      <span class="garantie-icon">💬</span>
+      <div class="garantie-title">Service rapide</div>
+      <div class="garantie-desc">Réponse WhatsApp en moins de 2h</div>
+      <div class="garantie-desc-ar">رد سريع على واتساب</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== INSTAGRAM ===== -->
+<section class="insta-section">
+  <div class="section-header reveal">
+    <span class="section-tag">Suivez-nous</span>
+    <h2 class="section-title">Notre <em>Instagram</em></h2>
+    <div class="section-title-ar">تابعونا على انستغرام</div>
+  </div>
+
+  <div class="insta-grid reveal">
+    <div class="insta-item">
+      <img src="images/produits/fille/3-4ans/demi-saison/set-2pieces/fille-3-4ans-set-butterfly-001.jpg"
+           onerror="this.src='images/logo/logo1.png'; this.style.objectFit='contain'; this.style.padding='20px'"
+           alt="Instagram" loading="lazy">
+      <div class="insta-overlay">📸</div>
+    </div>
+    <div class="insta-item">
+      <img src="images/produits/fille/5-6ans/demi-saison/set-2pieces/fille-5-6ans-set-violet-001.jpg"
+           onerror="this.src='images/logo/logo1.png'; this.style.objectFit='contain'; this.style.padding='20px'"
+           alt="Instagram" loading="lazy">
+      <div class="insta-overlay">📸</div>
+    </div>
+    <div class="insta-item">
+      <img src="images/produits/bebe/fille/4-6mois/demi-saison/body/bebe-fille-4-6mois-tshirt-star-001.jpg"
+           onerror="this.src='images/logo/logo1.png'; this.style.objectFit='contain'; this.style.padding='20px'"
+           alt="Instagram" loading="lazy">
+      <div class="insta-overlay">📸</div>
+    </div>
+    <div class="insta-item">
+      <img src="images/produits/bebe/garcon/4-6mois/demi-saison/pantalon/bebe-garcon-4-6mois-jean-hm-001.jpg"
+           onerror="this.src='images/logo/logo1.png'; this.style.objectFit='contain'; this.style.padding='20px'"
+           alt="Instagram" loading="lazy">
+      <div class="insta-overlay">📸</div>
     </div>
   </div>
 
-  <!-- CATALOGUE -->
-  <section id="catalogue">
-    <div class="section-header fade-in">
-      <div class="section-tag">Notre sélection</div>
-      <h2 class="section-title">Le <em>Catalogue</em></h2>
-      <p class="section-sub">Des pièces soigneusement choisies pour vos enfants</p>
-    </div>
+  <a href="https://instagram.com/petitdressing.ma" target="_blank" class="btn-insta reveal">
+    📸 Suivre @petitdressing.ma
+  </a>
+</section>
 
-    <div class="filters">
-      <button class="filter-btn active" onclick="filterProducts('all', this)">Tout voir</button>
-      <button class="filter-btn" onclick="filterProducts('bebe', this)">👶 Bébé</button>
-      <button class="filter-btn" onclick="filterProducts('fille', this)">👧 Fille</button>
-      <button class="filter-btn" onclick="filterProducts('garcon', this)">👦 Garçon</button>
-      <button class="filter-btn" onclick="filterProducts('set', this)">👕 Sets</button>
-    </div>
-
-    <div class="products-grid" id="productsGrid">
-
-      <div class="product-card fade-in" data-cat="fille set">
-        <div class="product-badge">⭐ Set</div>
-        <img src="images/produits/fille/3-4ans/demi-saison/set-2pieces/1/3.png" alt="Set Butterfly" class="product-img">
-        <div class="product-info">
-          <div class="product-category">👧 Fille</div>
-          <div class="product-name">Set Butterfly</div>
-          <div class="product-size">📏 3–4 ans</div>
-          <div class="product-footer">
-            <div class="product-price">89 <span>DH</span></div>
-            <a href="https://wa.me/212715464954?text=Bonjour, je suis intéressé(e) par le Set Butterfly (3-4 ans) à 89 DH"
-              class="btn-order" target="_blank"><i class="fab fa-whatsapp"></i> Commander</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="product-card fade-in" data-cat="bebe">
-        <img src="images/produits/bebe/garcon/0-6mois/demi-saison/sweat/1/1.png" alt="T-shirt You Are My Star"
-          class="product-img">
-        <div class="product-info">
-          <div class="product-category">👶 Bébé</div>
-          <div class="product-name">T-shirt "You Are My Star"</div>
-          <div class="product-size">📏 4–6 mois</div>
-          <div class="product-footer">
-            <div class="product-price">45 <span>DH</span></div>
-            <a href="https://wa.me/212715464954?text=Bonjour, je suis intéressé(e) par le T-shirt You Are My Star (4-6 mois) à 45 DH"
-              class="btn-order" target="_blank"><i class="fab fa-whatsapp"></i> Commander</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="product-card fade-in" data-cat="bebe garcon">
-        <div class="product-badge">H&M</div>
-        <img src="images/produits/bebe/garcon/0-6mois/demi-saison/pantalon/1/1.png" alt="Jean Moto H&M"
-          class="product-img">
-        <div class="product-info">
-          <div class="product-category">👶 Bébé Garçon</div>
-          <div class="product-name">Jean Moto H&M</div>
-          <div class="product-size">📏 4–6 mois</div>
-          <div class="product-footer">
-            <div class="product-price">55 <span>DH</span></div>
-            <a href="https://wa.me/212715464954?text=Bonjour, je suis intéressé(e) par le Jean Moto H&M (4-6 mois) à 55 DH"
-              class="btn-order" target="_blank"><i class="fab fa-whatsapp"></i> Commander</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="product-card fade-in" data-cat="fille set">
-        <div class="product-badge">⭐ Set</div>
-        <img src="images/produits/fille/5-6ans/demi-saison/sweat/3/1.png" alt="Set Be Happy" class="product-img">
-        <div class="product-info">
-          <div class="product-category">👧 Fille</div>
-          <div class="product-name">Set "Be Happy Every Day"</div>
-          <div class="product-size">📏 5–6 ans</div>
-          <div class="product-footer">
-            <div class="product-price">85 <span>DH</span></div>
-            <a href="https://wa.me/212715464954?text=Bonjour, je suis intéressé(e) par le Set Be Happy (5-6 ans) à 85 DH"
-              class="btn-order" target="_blank"><i class="fab fa-whatsapp"></i> Commander</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="product-card fade-in" data-cat="fille set">
-        <div class="product-badge">⭐ Set</div>
-        <img src="images/produits/fille/5-6ans/demi-saison/sweat/2/1.png" alt="Set Sparkle" class="product-img">
-        <div class="product-info">
-          <div class="product-category">👧 Fille</div>
-          <div class="product-name">Set "Sparkle All The Way"</div>
-          <div class="product-size">📏 5–6 ans</div>
-          <div class="product-footer">
-            <div class="product-price">89 <span>DH</span></div>
-            <a href="https://wa.me/212715464954?text=Bonjour, je suis intéressé(e) par le Set Sparkle (5-6 ans) à 89 DH"
-              class="btn-order" target="_blank"><i class="fab fa-whatsapp"></i> Commander</a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="about-inner">
-      <div class="about-text fade-in">
-        <div class="section-tag">Notre histoire</div>
-        <h2 class="section-title" style="text-align:left;">À propos de <em>Petit Dressing</em></h2>
-        <br>
-        <p>
-          Petit Dressing MA est née d'une conviction simple : les enfants grandissent vite, mais la qualité ne devrait
-          pas être un luxe. Basée à Fès, notre boutique propose une sélection soigneuse de vêtements seconde main pour
-          bébé et enfant, de la naissance jusqu'à 10 ans.
-        </p>
-        <p class="about-text-ar">
-          بيتي دريسينغ هي بوتيك متخصصة في ملابس الأطفال المستعملة بجودة عالية. نختار كل قطعة بعناية لنضمن لكم الراحة
-          والأناقة بأسعار في متناول الجميع.
-        </p>
-        <div class="about-values">
-          <div class="value-card">
-            <div class="value-icon">♻️</div>
-            <div class="value-title">Seconde main</div>
-            <div class="value-desc">Chaque vêtement est soigneusement inspecté avant la mise en vente</div>
-          </div>
-          <div class="value-card">
-            <div class="value-icon">💰</div>
-            <div class="value-title">Prix accessibles</div>
-            <div class="value-desc">Des économies réelles sans compromis sur la qualité</div>
-          </div>
-          <div class="value-card">
-            <div class="value-icon">🚚</div>
-            <div class="value-title">Livraison partout</div>
-            <div class="value-desc">Fès gratuit · Maroc entier dès 150 DH</div>
-          </div>
-          <div class="value-card">
-            <div class="value-icon">💬</div>
-            <div class="value-title">Service rapide</div>
-            <div class="value-desc">Réponse WhatsApp en moins de 2h</div>
-          </div>
-        </div>
-      </div>
-      <div class="about-logo-wrap fade-in">
-        <img src="images/logo/logo.png" alt="Petit Dressing MA Logo">
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section id="faq">
-    <div class="section-header fade-in">
-      <div class="section-tag">Questions fréquentes</div>
-      <h2 class="section-title">Vos <em>questions</em>, nos réponses</h2>
-    </div>
-
-    <div class="fade-in">
-      <div class="faq-item">
-        <div class="faq-question" onclick="toggleFaq(this)">
-          Comment passer une commande ?
-          <span class="faq-arrow">▼</span>
-        </div>
-        <div class="faq-answer">
-          <div class="faq-answer-inner">
-            C'est très simple ! Choisissez l'article qui vous intéresse dans notre catalogue, cliquez sur le bouton
-            "Commander" et vous serez redirigé directement vers notre WhatsApp. Nous confirmons votre commande et
-            arrangerons la livraison ensemble.
-          </div>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-question" onclick="toggleFaq(this)">
-          Quels sont les frais de livraison ?
-          <span class="faq-arrow">▼</span>
-        </div>
-        <div class="faq-answer">
-          <div class="faq-answer-inner">
-            La livraison est <strong>gratuite à Fès</strong>. Pour tout le Maroc, la livraison est <strong>gratuite dès
-              150 DH d'achat</strong>. En dessous de 150 DH, des frais de livraison s'appliquent selon votre ville.
-          </div>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-question" onclick="toggleFaq(this)">
-          Comment se passe le paiement ?
-          <span class="faq-arrow">▼</span>
-        </div>
-        <div class="faq-answer">
-          <div class="faq-answer-inner">
-            Nous fonctionnons en mode simple et sécurisé : commandez via WhatsApp, nous confirmons la disponibilité,
-            puis nous arrangeons le paiement ensemble. Plusieurs options disponibles selon votre situation.
-          </div>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-question" onclick="toggleFaq(this)">
-          Les vêtements sont-ils en bon état ?
-          <span class="faq-arrow">▼</span>
-        </div>
-        <div class="faq-answer">
-          <div class="faq-answer-inner">
-            Absolument ! Chaque article est soigneusement inspecté et sélectionné. Nous n'acceptons que des pièces en
-            très bon état, propres et sans défauts majeurs. Les photos publiées montrent l'état réel de chaque article.
-          </div>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-question" onclick="toggleFaq(this)">
-          Puis-je retourner un article ?
-          <span class="faq-arrow">▼</span>
-        </div>
-        <div class="faq-answer">
-          <div class="faq-answer-inner">
-            Si l'article reçu ne correspond pas à la description ou aux photos, contactez-nous immédiatement via
-            WhatsApp. Nous trouvons toujours une solution pour nos clients.
-          </div>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-question" onclick="toggleFaq(this)">
-          كيف أطلب منتجاً؟ · كيفاش نطلب؟
-          <span class="faq-arrow">▼</span>
-        </div>
-        <div class="faq-answer">
-          <div class="faq-answer-inner"
-            style="direction:rtl; font-family:'Amiri',serif; font-size:1rem; line-height:1.8;">
-            غير عليك تختار القطعة اللي عجباتك، تدوز على زر "Commander"، وغادي تتحول مباشرة لـ WhatsApp ديالنا. كنجاوبو
-            فالحال ونرتبو معاك للتوصيل.
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- INSTAGRAM -->
-  <section id="instagram">
-    <div class="insta-inner">
-      <div class="section-header fade-in">
-        <div class="section-tag">Suivez-nous</div>
-        <h2 class="section-title">Notre <em>Instagram</em></h2>
-        <p class="section-sub">@petitdressing.ma — Nouvelles arrivées chaque semaine</p>
-      </div>
-
-      <div class="insta-grid fade-in">
-        <div class="insta-item">
-          <img src="images/produits/bebe/fille/0-6mois/ete/robe/1-3mois/3.png" alt="Instagram post">
-          <div class="insta-overlay"><span style="color:white;font-size:1.5rem;"><i class="fab fa-instagram"></i></span>
-          </div>
-        </div>
-        <div class="insta-item">
-          <img src="images/produits/fille/3-4ans/hiver/pyjama/Grenouilleres/1/3.png" alt="Instagram post">
-          <div class="insta-overlay"><span style="color:white;font-size:1.5rem;"><i class="fab fa-instagram"></i></span>
-          </div>
-        </div>
-        <div class="insta-item">
-          <img src="images/produits/garcon/3-4ans/hiver/pyjama/Grenouilleres/2/3.png" alt="Instagram post">
-          <div class="insta-overlay"><span style="color:white;font-size:1.5rem;"><i class="fab fa-instagram"></i></span>
-          </div>
-        </div>
-        <div class="insta-item">
-          <img src="images/produits/fille/6-8ans/demi-saison/set-2pieces/1/4.png" alt="Instagram post">
-          <div class="insta-overlay"><span style="color:white;font-size:1.5rem;"><i class="fab fa-instagram"></i></span>
-          </div>
-        </div>
-      </div>
-
-      <div class="insta-follow">
-        <a href="https://instagram.com/petitdressing.ma" target="_blank" class="btn-insta">
-          <i class="fab fa-instagram"></i> Suivre @petitdressing.ma
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="section-header fade-in">
-      <div class="section-tag">Contactez-nous</div>
-      <h2 class="section-title">On est <em>là pour vous</em></h2>
-    </div>
-
-    <div class="contact-card fade-in">
-      <p style="color:var(--text-light);line-height:1.7;margin-bottom:8px;">
-        Vous avez une question sur un article, une taille ou la livraison ? Contactez-nous directement, nous répondons
-        rapidement ! 💬
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">Petit <span>Dressing</span></div>
+      <p class="footer-tagline">
+        Vêtements seconde main pour bébé et enfant.<br>
+        Fès, Maroc 🇲🇦
       </p>
-      <p style="color:var(--text-light);font-family:'Amiri',serif;font-size:1.05rem;line-height:1.8;direction:rtl;">
-        عندك سؤال؟ تواصل معنا مباشرة، كنجاوبو بسرعة 🌟
-      </p>
-
-      <div class="contact-methods">
-        <a href="https://wa.me/212715464954" target="_blank" class="contact-method" style="color:#25d366;">
-          <div class="contact-method-icon"><i class="fab fa-whatsapp"></i></div>
-          <div class="contact-method-title">WhatsApp</div>
-          <div class="contact-method-sub">Réponse en moins de 2h</div>
-        </a>
-        <a href="https://instagram.com/petitdressing.ma" target="_blank" class="contact-method" style="color:#E1306C;">
-
-          <div class="contact-method-icon"><i class="fab fa-instagram"></i></div>
-          <div class="contact-method-title">Instagram</div>
-          <div class="contact-method-sub">@petitdressing.ma</div>
-
-        </a>
-      </div>
     </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-logo">Petit <span>Dressing</span> MA</div>
-      <div class="footer-tagline">Bébé & Enfant · Fès, Maroc 🇲🇦</div>
+    <div>
+      <div class="footer-title">Navigation</div>
       <div class="footer-links">
-        <a href="#catalogue">Catalogue</a>
-        <a href="#about">À propos</a>
-        <a href="#faq">FAQ</a>
-        <a href="#instagram">Instagram</a>
-        <a href="#contact">Contact</a>
-      </div>
-      <div class="footer-bottom">
-        © 2025 Petit Dressing MA · Tous droits réservés · petitdressing.ma
+        <a href="catalogue.html">Catalogue</a>
+        <a href="index.html#categories">Catégories</a>
+        <a href="index.html#about">À propos</a>
+        <a href="contact.html">Contact</a>
       </div>
     </div>
-  </footer>
+    <div>
+      <div class="footer-title">Nous suivre</div>
+      <div class="footer-links">
+        <a href="https://instagram.com/petitdressing.ma" target="_blank">📸 Instagram</a>
+        <a href="https://wa.me/212600000000" target="_blank">📱 WhatsApp</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Petit Dressing MA · Tous droits réservés</span>
+    <span>petitdressing.ma</span>
+  </div>
+</footer>
 
-  <!-- WHATSAPP FLOAT -->
-  <a href="https://wa.me/212715464954" class="wa-float" target="_blank" title="Commander sur WhatsApp"><i
-      class="fab fa-whatsapp"></i></a>
+<!-- ===== WHATSAPP FLOAT ===== -->
+<a href="https://wa.me/212600000000" class="wa-float" target="_blank" title="Commander sur WhatsApp">📱</a>
 
-  <script>
-    // Navbar scroll
-    window.addEventListener('scroll', () => {
-      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
-    });
-
-    // Mobile menu
-    function toggleMenu() {
-      document.getElementById('mobileMenu').classList.toggle('open');
-    }
-
-    // FAQ toggle
-    function toggleFaq(el) {
-      const item = el.parentElement;
-      const wasOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-      if (!wasOpen) item.classList.add('open');
-    }
-
-    // Product filter
-    function filterProducts(cat, btn) {
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      document.querySelectorAll('.product-card').forEach(card => {
-        if (cat === 'all' || card.dataset.cat.includes(cat)) {
-          card.classList.remove('hidden');
-        } else {
-          card.classList.add('hidden');
-        }
-      });
-    }
-
-    // Scroll animations
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-    // Close mobile menu on outside click
-    document.addEventListener('click', (e) => {
-      if (!e.target.closest('nav') && !e.target.closest('.mobile-menu')) {
-        document.getElementById('mobileMenu').classList.remove('open');
-      }
-    });
-  </script>
+<script src="js/main.js"></script>
 </body>
-
 </html>
